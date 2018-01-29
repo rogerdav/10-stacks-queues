@@ -35,19 +35,18 @@ describe('Stack Module', function() {
   });
   describe('Pop method', () =>{
 
-    it('should add a new node with value of 1 to the top of the stack', () => {
+    it('should remove a new node with value of 1 from the top of the stack', () => {
       this.stack.push(1);
-      expect(this.stack.top.val).toEqual(1);
       expect(this.stack.pop().val).toEqual(1);
     });
 
 
   });
   describe('Peek', () =>{
-    it('should return the top of the stack', () => {
-      expect(this.stack.top).toBeNull();
+
+    it('should return the value of top of the stack', () => {
       this.stack.push(1);
-      expect(this.stack.top.val).toEqual(1);
+      expect(this.stack.peek().val).toEqual(1);
     });
 
 
