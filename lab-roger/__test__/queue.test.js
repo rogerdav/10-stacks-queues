@@ -38,28 +38,52 @@ describe('Queue Module', function() {
     });
 
   });
-  describe('enQueue', () =>{
+  describe('enDequeue', () =>{
 
-    it('should remove a placeholder in queue', () =>{
+    it('should remove a placeholder in the front of thequeue', () =>{
       this.queue.enQueue(1);
       this.queue.enQueue(2);
       this.queue.enQueue(25);
       expect(this.queue.deQueue()).toEqual(1);
       expect(this.queue.size()).toEqual(2);
 
-    });
-    // it('should return a size of 1', () =>{
-    //   this.queue.enQueue(1);
-    //   expect(this.queue.size()).toEqual(1);
-    // });
-    // it('should have a newest index value of 2', () => {
-    //   this.queue.enQueue(1);
-    //   expect(this.queue.newest).toEqual(2);
-    // });
 
+    });
+    it('should check that the size is correct after removal', () =>{
+      this.queue.enQueue(1);
+      this.queue.enQueue(2);
+      this.queue.enQueue(25);
+      this.queue.deQueue();
+      expect(this.queue.size()).toEqual(2);
+
+    });
   });
 
+  describe('size', () =>{
 
+    it('confirm that the size of the queue after 3 adds is 3', () =>{
+      this.queue.enQueue(1);
+      this.queue.enQueue(2);
+      this.queue.enQueue(25);
+      expect(this.queue.size()).toEqual(3);
+
+
+    });
+    it('should check that the value of the "front of the queue" is 1', () =>{
+      this.queue.enQueue(1);
+      this.queue.enQueue(2);
+      this.queue.enQueue(25);
+      expect(this.queue.oldest).toEqual(1);
+
+    });
+    it('should check that the value of the "back of the queue" is 25', () =>{
+      this.queue.enQueue(1);
+      this.queue.enQueue(2);
+      this.queue.enQueue(25);
+      expect(this.queue.newest).toEqual(4);
+
+    });
+  });
 
 
 });
